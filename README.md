@@ -1,53 +1,20 @@
-# PDF Toolkit
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-A free and privacy-first PDF/document utility toolkit.
+# Run and deploy your AI Studio app
 
-## Project Goal
+This contains everything you need to run your app locally.
 
-Build an original PDF/document utility website that provides common PDF and document operations without artificial daily or monthly conversion quotas.
+View your app in AI Studio: https://ai.studio/apps/a52bb342-304a-47da-9c1e-0690898f442d
 
-The project will use free and open-source technologies wherever practical.
+## Run Locally
 
-## Planned Tools
+**Prerequisites:**  Node.js
 
-### Organise
-- Merge PDF
-- Split PDF
-- Rotate PDF
 
-### Convert
-- Word → PDF
-- PowerPoint → PDF
-- Excel → PDF
-- Images → PDF
-- PDF → Word
-- PDF → PowerPoint
-- PDF → Excel
-- PDF → Images
-
-### Optimise
-- Compress PDF
-
-### Extract
-- PDF → Text
-
-## Technology Stack
-
-- React + TypeScript
-- Tailwind CSS
-- Python + FastAPI
-- LibreOffice
-- PyMuPDF / pypdf
-- Ghostscript
-- Git + GitHub
-- Docker
-
-## Development Approach
-
-AI-assisted development will be used for coding, planning, refactoring, debugging, and testing.
-
-The source code will remain in GitHub as the project's source of truth.
-
-## Status
-
-🚧 Initial development — Day 1
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
