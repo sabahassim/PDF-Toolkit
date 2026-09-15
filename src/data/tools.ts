@@ -114,3 +114,15 @@ export const TOOL_CATEGORIES = [
   { id: 'convert-from', label: 'Convert from PDF' },
   { id: 'convert-to', label: 'Convert to PDF' },
 ] as const;
+
+export const TOOL_ROUTES = PDF_TOOLS.map((tool) => `/${tool.id}`);
+
+export function getToolById(id: string): PdfTool | undefined {
+  return PDF_TOOLS.find((tool) => tool.id === id);
+}
+
+export function getRelatedTools(tool: PdfTool, limit = 4): PdfTool[] {
+  const sameCategory = PDF_TOOLS.filter((item) => item.id !== tool.id && item.category === tool.category);
+  const remaining = PDF_TOOLS.filter((item) => item.id !== tool.id && item.category !== tool.category);
+  return [...sameCategory, ...remaining].slice(0, limit);
+}

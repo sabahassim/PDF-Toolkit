@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   FileText,
   Sun,
@@ -6,8 +7,6 @@ import {
   Settings as SettingsIcon,
   Menu,
   X,
-  ShieldCheck,
-  Search,
   Sparkles,
 } from 'lucide-react';
 
@@ -39,7 +38,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand Logo & Name */}
-          <div
+          <Link
+            to="/"
             id="brand-logo"
             onClick={() => handleNavClick('hero')}
             className="flex items-center gap-3 cursor-pointer group"
@@ -56,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 Fast & Secure
               </span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-1">

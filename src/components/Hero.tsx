@@ -36,24 +36,6 @@ export const Hero: React.FC<HeroProps> = ({
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Release Pill / Highlight Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/70 dark:border-indigo-800/60 text-xs font-semibold text-indigo-700 dark:text-indigo-300 mb-6 shadow-xs">
-          <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>Merge PDF Tool is Live</span>
-          {onLaunchMergePdf && (
-            <>
-              <span className="text-indigo-400 dark:text-indigo-500">•</span>
-              <button
-                type="button"
-                onClick={onLaunchMergePdf}
-                className="font-bold underline hover:text-indigo-900 dark:hover:text-white cursor-pointer"
-              >
-                Launch Now
-              </button>
-            </>
-          )}
-        </div>
-
         {/* Large Headline */}
         <h1
           id="hero-main-heading"
@@ -126,7 +108,9 @@ export const Hero: React.FC<HeroProps> = ({
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-slate-900 dark:text-white">Zero File Retention</h4>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white">
+                Zero File Retention
+              </h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                 Files are strictly processed in private memory and never saved to databases.
               </p>
@@ -138,7 +122,9 @@ export const Hero: React.FC<HeroProps> = ({
               <Zap className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-slate-900 dark:text-white">High-Speed Execution</h4>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white">
+                High-Speed Execution
+              </h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                 Optimized algorithms convert and compress documents in just seconds.
               </p>
@@ -150,7 +136,9 @@ export const Hero: React.FC<HeroProps> = ({
               <Lock className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-slate-900 dark:text-white">No Registration Needed</h4>
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white">
+                No Registration Needed
+              </h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                 Jump right in without paywalls, sign-up forms, or intrusive cookies.
               </p>

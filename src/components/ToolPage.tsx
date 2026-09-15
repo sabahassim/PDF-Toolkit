@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import { PdfTool, UploadedFileItem } from '../types';
 import { ToolIcon, getAccentStyles } from './ToolIcon';
+import { Link } from 'react-router-dom';
 import {
   formatBytes,
   isPdfFile,
@@ -50,9 +51,15 @@ interface ToolPageProps {
   tool: PdfTool;
   onBack: () => void;
   darkMode?: boolean;
+  relatedTools?: PdfTool[];
 }
 
-export const ToolPage: React.FC<ToolPageProps> = ({ tool, onBack, darkMode = false }) => {
+export const ToolPage: React.FC<ToolPageProps> = ({
+  tool,
+  onBack,
+  darkMode = false,
+  relatedTools = [],
+}) => {
   // Real selected files in state - supports 20+ files without arbitrary limit
   const [selectedFiles, setSelectedFiles] = useState<UploadedFileItem[]>([]);
   const [isDragging, setIsDragging] = useState(false);
@@ -415,7 +422,7 @@ export const ToolPage: React.FC<ToolPageProps> = ({ tool, onBack, darkMode = fal
           className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          <span>Back to All Tools</span>
+          <span>Back to homepage</span>
         </button>
 
         <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
@@ -432,11 +439,11 @@ export const ToolPage: React.FC<ToolPageProps> = ({ tool, onBack, darkMode = fal
             <div
               className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm shrink-0 ${styles.badgeBg} ${styles.text}`}
             >
-              <ToolIcon iconName={tool.icon} className="w-7 h-7" />
+              <ToolIcon iconName={tool.iconName} accentColor={tool.accentColor} className="w-7 h-7" />
             </div>
             <div>
               <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
-                {tool.title}
+                {tool.name}
               </h1>
               <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-xl">
                 {tool.description}
@@ -1220,6 +1227,26 @@ export const ToolPage: React.FC<ToolPageProps> = ({ tool, onBack, darkMode = fal
           )}
         </div>
       </div>
+
+      {relatedTools.length > 0 && (
+        <div className="mt-8">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Related tools</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {relatedTools.map((related) => (
+              <Link
+                key={related.id}
+                to={`/${related.id}`}
+                className="text-left p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 hover:shadow-sm transition-all"
+              >
+                <p className="text-sm font-bold text-slate-900 dark:text-white">{related.name}</p>
+                <p className="mt-1 text-xs text-slate-500 dark:text-slate-400 line-clamp-2">
+                  {related.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

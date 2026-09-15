@@ -1,29 +1,21 @@
 import React from 'react';
-import { ArrowUpRight, Check, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 import { PdfTool } from '../types';
 import { ToolIcon, getAccentStyles } from './ToolIcon';
 
 interface ToolCardProps {
   tool: PdfTool;
-  onClick: (tool: PdfTool) => void;
   darkMode?: boolean;
 }
 
-export const ToolCard: React.FC<ToolCardProps> = ({ tool, onClick, darkMode = false }) => {
+export const ToolCard: React.FC<ToolCardProps> = ({ tool, darkMode = false }) => {
   const styles = getAccentStyles(tool.accentColor, darkMode);
 
   return (
-    <div
+    <Link
+      to={`/${tool.id}`}
       id={`tool-card-${tool.id}`}
-      onClick={() => onClick(tool)}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onClick(tool);
-        }
-      }}
       className={`group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/90 dark:border-slate-700/80 shadow-xs hover:shadow-xl ${styles.glow} transition-all duration-300 hover:-translate-y-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500`}
     >
       {/* Top row: Icon and Optional Badge */}
@@ -72,6 +64,6 @@ export const ToolCard: React.FC<ToolCardProps> = ({ tool, onClick, darkMode = fa
           <span>Launch Tool</span>
         </span>
       </div>
-    </div>
+    </Link>
   );
 };

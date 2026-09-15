@@ -1,18 +1,16 @@
 import React, { useState, useMemo } from 'react';
-import { PdfTool, ToolCategory } from '../types';
+import { ToolCategory } from '../types';
 import { PDF_TOOLS, TOOL_CATEGORIES } from '../data/tools';
 import { ToolCard } from './ToolCard';
-import { Search, Filter, Sparkles, AlertCircle } from 'lucide-react';
+import { Sparkles, AlertCircle } from 'lucide-react';
 
 interface PopularToolsProps {
-  onSelectTool: (tool: PdfTool) => void;
   searchQuery: string;
   onSearchChange: (query: string) => void;
   darkMode?: boolean;
 }
 
 export const PopularTools: React.FC<PopularToolsProps> = ({
-  onSelectTool,
   searchQuery,
   onSearchChange,
   darkMode = false,
@@ -96,7 +94,6 @@ export const PopularTools: React.FC<PopularToolsProps> = ({
               <ToolCard
                 key={tool.id}
                 tool={tool}
-                onClick={onSelectTool}
                 darkMode={darkMode}
               />
             ))}

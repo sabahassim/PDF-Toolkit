@@ -1,20 +1,37 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# PDF Toolkit
 
-# Run and deploy your AI Studio app
+A free, privacy-focused online PDF toolkit for common document operations.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/a52bb342-304a-47da-9c1e-0690898f442d
+- Merge PDF files
+- Split PDF files
+- Extract selected PDF pages
+- Compress PDF files
+- Rotate PDF pages
+- JPG to PDF
+- Word to PDF
+- PDF to Word
+- PDF to JPG
+- Multi-file processing with a maximum of 100 input files
+- Drag-and-drop file selection
+- Direct downloads and ZIP downloads for multiple output files
 
-## Run Locally
+## Privacy
 
-**Prerequisites:**  Node.js
+PDF processing is designed with privacy in mind. Files are processed through the application's PDF tools and are not intended to be permanently stored.
 
+## Technology
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- React
+- TypeScript
+- Vite
+- PDF processing libraries
+- Modern responsive web interface
+
+## Running Locally
+
+Install dependencies:
+
+```bash
+npm install
